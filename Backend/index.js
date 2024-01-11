@@ -1,9 +1,10 @@
-const http = require('http');
-const server = http.createServer((req, res) => {
-    res.end('Hello World');
-    });
+const express = require('express');
 const port = 8000;
+const server = express();
 const db = require('./Config/mongoose');
+
+
+server.use('/',require('./router'));
 server.listen(port,(error)=>{
     if(error){
         console.log(error.message);
